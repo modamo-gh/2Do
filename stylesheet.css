@@ -54,9 +54,15 @@ button {
 .taskDiv {
 	flex-direction: row;
 	padding: 1rem;
-	width: 50%;
+	width: 75%;
 }
 
 :checked + label {
 	text-decoration: line-through;
+}
+
+@media only screen and (min-width: 768px) {
+	.taskDiv {
+		width: 50%;
+	}
 }
