@@ -13,8 +13,18 @@
 			<button type="submit" onclick="addTask()">Add Task</button>
 		</div>
 		<div id="tasks">
-			<div id="uncompletedTasks" class="taskList"></div>
-			<div id="completedTasks" class="taskList"></div>
+			<div
+				id="uncompletedTasks"
+				class="taskList"
+				ondrop="drop(event)"
+				ondragover="allowDrop(event)"
+			></div>
+			<div
+				id="completedTasks"
+				class="taskList"
+				ondrop="drop(event)"
+				ondragover="allowDrop(event)"
+			></div>
 		</div>
 		<button type="reset" onclick="clearLists()" id="clear">Clear</button>
 		<script src="2Do.js"></script>
