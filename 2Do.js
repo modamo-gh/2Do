@@ -3,27 +3,48 @@ function addTask() {
 	let taskDiv = document.createElement("div");
 	taskDiv.setAttribute("class", "taskDiv");
 
-	// Create a checkbox
-	let checkbox = document.createElement("input");
-	checkbox.setAttribute("type", "checkbox");
-
-	// Create a label
-	let taskLabel = document.createElement("label");
+	// Create a paragraph
+	let task = document.createElement("p");
 
 	// Retrieve the text from the text input and set it as the label
 	let taskText = document.getElementById("task").value;
-	taskLabel.append(taskText);
-
-	// Associate the checkbox and label by giving them the same id
-	let idNumber = Math.random().toString().slice(2);
-	checkbox.setAttribute("id", idNumber);
-	taskLabel.htmlFor = idNumber;
+	task.append(taskText);
 
 	// Place checkbox and label inside div
-	taskDiv.append(checkbox);
-	taskDiv.append(taskLabel);
+	taskDiv.append(task);
 
-	// Add div into the list div
-	let taskList = document.getElementById("tasks");
-	taskList.append(taskDiv);
+	// // Add click functionality to div
+	taskDiv.addEventListener("click", function () {
+		moveTask(taskDiv);
+	});
+
+	// Add div into the uncompletedTasks div
+	let uncompletedTasks = document.getElementById("uncompletedTasks");
+	uncompletedTasks.append(taskDiv);
+}
+
+function moveTask(taskDiv) {
+	let uncompletedTasks = document.getElementById("uncompletedTasks");
+	let completedTasks = document.getElementById("completedTasks");
+
+	if (uncompletedTasks.contains(taskDiv)) {
+		uncompletedTasks.removeChild(taskDiv);
+		completedTasks.append(taskDiv);
+	} else {
+		completedTasks.removeChild(taskDiv);
+		uncompletedTasks.append(taskDiv);
+	}
+}
+
+function clearLists() {
+	let uncompletedTasks = document.getElementById("uncompletedTasks");
+	let completedTasks = document.getElementById("completedTasks");
+
+	while (uncompletedTasks.hasChildNodes()) {
+		uncompletedTasks.removeChild(uncompletedTasks.firstChild);
+	}
+
+	while (completedTasks.hasChildNodes()) {
+		completedTasks.removeChild(completedTasks.firstChild);
+	}
 }
