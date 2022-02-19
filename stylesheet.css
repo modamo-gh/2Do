@@ -1,15 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap");
 
+html,
+body {
+	height: 100%;
+}
+
 body,
 button {
-	background-color: #fbbfca;
+	background-color: #cfcfc4;
 }
 
 #taskEntry,
 .taskDiv {
-	background-color: #875053;
+	background-color: #a0c4ff;
 	font-family: "Quicksand", sans-serif;
 	text-align: center;
+}
+
+#taskEntry {
+	position: sticky;
+}
+
+#clear {
+	background-color: #a0c4ff;
+	align-self: center;
+	margin-bottom: 20px;
 }
 
 body,
@@ -41,7 +56,7 @@ button {
 }
 
 h1,
-label {
+p {
 	color: white;
 }
 
@@ -54,9 +69,42 @@ button {
 .taskDiv {
 	flex-direction: row;
 	padding: 1rem;
-	width: 50%;
+	width: 75%;
 }
 
-:checked + label {
-	text-decoration: line-through;
+#tasks {
+	display: flex;
+	flex-direction: column;
+	/* align-items: flex-start; */
+	height: 100%;
+	margin-bottom: 20px;
+}
+
+.taskList {
+	width: 100%;
+	/* flex-grow: 1; */
+	height: 100%;
+	overflow: auto;
+}
+
+@media only screen and (min-width: 768px) {
+	.taskDiv {
+		width: 50%;
+	}
+
+	#tasks {
+		flex-direction: row;
+	}
+
+	.taskList {
+		width: 50%;
+	}
+}
+
+#uncompletedTasks {
+	background-color: #ffadad;
+}
+
+#completedTasks {
+	background-color: #caffbf;
 }
