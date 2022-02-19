@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>2Do</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="stylesheet.css" />
-		<script src="2Do.js"></script>
 	</head>
 	<body>
 		<div id="taskEntry">
@@ -12,6 +12,11 @@
 			<input type="text" name="task" id="task" />
 			<button type="submit" onclick="addTask()">Add Task</button>
 		</div>
-		<div id="tasks"></div>
+		<div id="tasks">
+			<div id="uncompletedTasks" class="taskList"></div>
+			<div id="completedTasks" class="taskList"></div>
+		</div>
+		<button type="reset" onclick="clearLists()" id="clear">Clear</button>
+		<script src="2Do.js"></script>
 	</body>
 </html>
