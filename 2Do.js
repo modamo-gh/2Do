@@ -14,9 +14,16 @@ function addTask() {
 	taskDiv.append(task);
 
 	// // Add click functionality to div
-	taskDiv.addEventListener("click", function () {
-		moveTask(taskDiv);
-	});
+	// taskDiv.addEventListener("click", function () {
+	// 	moveTask(taskDiv);
+	// });
+
+	let idNumber = Math.random().toString().slice(2);
+	taskDiv.setAttribute("id", idNumber);
+	taskDiv.setAttribute("draggable", true);
+	taskDiv.ondragstart = function () {
+		drag(event);
+	};
 
 	// Add div into the uncompletedTasks div
 	let uncompletedTasks = document.getElementById("uncompletedTasks");
@@ -47,4 +54,18 @@ function clearLists() {
 	while (completedTasks.hasChildNodes()) {
 		completedTasks.removeChild(completedTasks.firstChild);
 	}
+}
+
+function drag(ev) {
+	ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function allowDrop(ev) {
+	ev.preventDefault();
+}
+
+function drop(ev) {
+	ev.preventDefault();
+	let data = ev.dataTransfer.getData("text/plain");
+	ev.target.appendChild(document.getElementById(data));
 }
