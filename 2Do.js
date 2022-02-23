@@ -8,10 +8,11 @@ function createTaskDiv() {
 	checkbox.setAttribute("type", "checkbox");
 
 	// Create a label
+	// Labels are the text for inputs like checkboxes and radios
 	let taskLabel = document.createElement("label");
 
 	// Retrieve the text from the text input and set it as the label
-	let taskText = document.getElementById("task").value;
+	let taskText = document.querySelector("input").value;
 	taskLabel.append(taskText);
 
 	// Associate the checkbox and label by giving them the same id
@@ -27,9 +28,10 @@ function createTaskDiv() {
 }
 
 function addTask() {
+	//Create a task and save it
 	const taskDiv = createTaskDiv();
 
 	// Add div into the list div
-	let taskList = document.getElementById("tasks");
+	let taskList = document.querySelector("div#tasks");
 	taskList.append(taskDiv);
 }
