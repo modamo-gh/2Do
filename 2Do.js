@@ -1,4 +1,4 @@
-function addTask() {
+function createTaskDiv() {
 	// Create a div element for the task and give it class "taskDiv"
 	let taskDiv = document.createElement("div");
 	taskDiv.setAttribute("class", "taskDiv");
@@ -22,6 +22,12 @@ function addTask() {
 	// Place checkbox and label inside div
 	taskDiv.append(checkbox);
 	taskDiv.append(taskLabel);
+
+	return taskDiv;
+}
+
+function addTask() {
+	const taskDiv = createTaskDiv();
 
 	// Add div into the list div
 	let taskList = document.getElementById("tasks");
