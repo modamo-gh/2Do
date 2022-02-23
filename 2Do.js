@@ -35,3 +35,13 @@ function addTask() {
 	let taskList = document.querySelector("div#tasks");
 	taskList.append(taskDiv);
 }
+
+function clearTasks() {
+	// Find task list
+	const taskList = document.querySelector("div#tasks");
+
+	// Clear all task nodes as long as a task node exist
+	while (taskList.hasChildNodes()) {
+		taskList.removeChild(taskList.firstChild);
+	}
+}
