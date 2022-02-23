@@ -16,10 +16,6 @@ body,
 div {
 	display: flex;
 	flex-direction: column;
-}
-
-body,
-.taskDiv {
 	justify-content: center;
 }
 
