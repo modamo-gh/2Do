@@ -45,3 +45,14 @@ function clearTasks() {
 		taskList.removeChild(taskList.firstChild);
 	}
 }
+
+// Select the input
+let input = document.querySelector("input");
+
+// When enter is pressed, add task to task list
+input.addEventListener("keyup", function (event) {
+	if (event.key === "Enter") {
+		event.preventDefault();
+		document.querySelector("div button").click();
+	}
+});
